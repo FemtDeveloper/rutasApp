@@ -28,6 +28,8 @@ export const PermissionsProvider = ({children}: any) => {
   const [permissions, setPermissions] = useState(permissionInitState);
 
   useEffect(() => {
+    // if infinite loading
+    checkLocationPermission();
     AppState.addEventListener('change', state => {
       if (state === 'inactive') return;
       checkLocationPermission();
